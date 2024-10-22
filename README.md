@@ -30,6 +30,19 @@ Navigate into directory
 cd bin-provider-service
 ```
 
+Add Environment Variables
+```bash
+touch .env
+```
+Copy and paste variables below into .env
+```bash
+MONGO_INITDB_ROOT_USERNAME=root
+MONGO_INITDB_ROOT_PASSWORD=password
+DB_HOST=mongo-database
+DB_PORT=27017
+PORT=9090
+```
+
 Build and run backend application and mongo database using docker-compose
 ```bash
 docker-compose up --build
@@ -37,7 +50,7 @@ docker-compose up --build
 
 Access application on your api client 
 ```bash
-http://localhost:9090/api/v1/80247008
+http://localhost:9090/api/v1/bins/80247008
 ```
 
 
