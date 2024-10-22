@@ -1,0 +1,37 @@
+services:
+  bin-provider:
+    image: bin-provider:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bin-provider
+    env_file: .env
+    ports:
+      - 9090:9090
+    # extra_hosts:
+    #   -  "host.docker.internal:host-gateway"
+    depends_on:
+      mongo-database:
+        condition: "service_started"
+    networks:
+      - default-network
+
+
+  mongo-database:
+    image: mongo:latest
+    restart: always
+    container_name: mongo-database
+    env_file: .env
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db 
+    networks:
+      - default-network
+
+volumes:
+  mongo_data:
+  
+networks:
+  default-network:
+

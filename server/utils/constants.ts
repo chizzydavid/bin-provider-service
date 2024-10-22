@@ -1,0 +1,1 @@
+export const BIN_PROCESSING_BATCH_SIZE = 1000
